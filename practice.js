@@ -9,13 +9,13 @@ function greeting(name){
   return "Hello, " + name;
 }
 
-
 //////////////////PROBLEM 2////////////////////
 
 //Rewrite the function greeting as a function expression.
 //Name it newGreeting
-
-var newGreeting = greeting();
+var newGreeting = function(name){
+  return "Hello, " + name;
+}
 
 
 //////////////////PROBLEM 3////////////////////
@@ -24,7 +24,6 @@ var newGreeting = greeting();
 //Name it finalGreeting
 
 var finalGreeting = name => "Hello, " + name;
-
 
 //////////////////PROBLEM 4////////////////////
 
@@ -93,30 +92,28 @@ var dog = {
 
 function looper(arr){
   var mySum = 0;
-  var newArr = arr.filter(a => a % 2 !== 0 || a > 100);
-  mySum = arr.reduce((a,b)=>a+b);
-  return mySum;
+  var newArr = arr.filter(a => a % 2 !== 0 || a >= 100);
+  Sum = newArr.reduce((prev, curr)=>prev + curr);
+  return Sum;
 }
-
 //////////////////PROBLEM 7////////////////////
 
 //Given the following function called math
 
 function math(num1, num2, callback) {
-  return callback(num1, num2)
+  return callback(num1, num2);
 }
 
 //Write a function called add that takes in two parameters and
 //returns the result of adding them together.
 
-  add = (x, y) => x + y;
+  var add = (x, y) => x + y;
 
 
 //Now invoke math, passing in the numbers 3 and 4, and your add function,
 //storing the result in the variable mathSum
 
-math(3,4,add);
-
+var mathSum = math(3,4,add);
 
 
 //////////////////PROBLEM 8////////////////////
@@ -133,7 +130,8 @@ function sampleCallbackTwo() {
 }
 
   
-invoker = callBack => callBack;
+invoker = callBack => callBack();
+
 
 
 //////////////////PROBLEM 9////////////////////
@@ -162,15 +160,15 @@ let globalScope = ['duck'];
 
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = ['rubberDuck'];
+let bathroomScope = ['duck', "rubberDuck"];
 
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = ['sailorDuck'];
+let bathtubScope = ['sailorDuck', 'rubberDuck', 'duck'];
 
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = ['realDuck'];
+let pondScope = ['realDuck', 'duck'];
 
 
 
